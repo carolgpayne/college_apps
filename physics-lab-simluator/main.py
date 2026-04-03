@@ -6,17 +6,31 @@ import time as tm
 import data_loader as dl
 
 def main():
-    print("Physics Lab Simulator" + "\n" + "---------------------")
-    print("1. Projectile calculator")
-    print("2. Graph projectile trajectory")
-    print("3. Run projectile simulation")
-    print("4. Analyze lab data")
-    print("5. Exit")
+    x_vals = None
+    y_vals = None
 
-    option = input("Choose an option (1, 2, etc.): ")
+    while True:
+        print("Physics Lab Simulator" + "\n" + "---------------------")
+        print("1. Projectile calculator")
+        print("2. Graph projectile trajectory")
+        print("3. Run projectile simulation")
+        print("4. Analyze lab data")
+        print("5. Exit")
 
-    if option == "1":
-        pm.choices()
+        option = input("Choose an option (1, 2, etc.): ")
+
+        if option == "1":
+            x_vals, y_vals = pm.choices()
+
+        elif option == "2":
+            if x_vals is None or y_vals is None:
+                print("Run the calculator first!")
+            else:
+                gp.graph_position(x_vals, y_vals)
+
+        elif option == "5":
+            print("Goodbye!")
+            break
 
     return 0
 
