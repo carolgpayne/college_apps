@@ -5,7 +5,6 @@ import numpy as np
 g = 9.81
 
 def choices():
-
     print("Calculation options" + "\n" + "-------------------")
     print("1. Height")
     print("2. Distance")
@@ -30,8 +29,14 @@ def position(calculation):
 
     if calculation == "1":
         print("Final Height: ", y_vals[-1])
+        new_calc = input("Would you like to perform another calculation? (Y/N): ")
+        if new_calc == "Y" or new_calc == "y":
+            choices()
     elif calculation == "2":
         print("Final Distance: ", x_vals[-1])
+        new_calc = input("Would you like to perform another calculation? (Y/N): ")
+        if new_calc == "Y" or new_calc == "y":
+            choices()
     elif calculation == "3":
         print("Final Position: ", x_vals[-1], y_vals[-1])
 
