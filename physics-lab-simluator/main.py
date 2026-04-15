@@ -1,9 +1,6 @@
-import projectile_math as pm
-import numpy as np
-import graphing as gp
-from simulations import projectile_sim
-import time as tm
-import data_loader as dl
+from Calculations import graphing as gp, projectile_math as pm
+from simulations import projectile_sim as ps
+
 
 def main():
     x_vals = None
@@ -26,7 +23,9 @@ def main():
             if x_vals is None or y_vals is None:
                 print("Run the calculator first!")
             else:
-                gp.graph_position(x_vals, y_vals)
+                gp.graph_position()
+        elif option == "3":
+            ps.time(x_vals, y_vals)
 
         elif option == "5":
             print("Goodbye!")

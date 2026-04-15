@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-def graph_position(x_vals, y_vals):
+def graph_position():
     x_vals = np.linspace(-10, 10, 100)
     y_vals = -x_vals**2
 
