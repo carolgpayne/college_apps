@@ -40,4 +40,4 @@ def position(calculation):
     elif calculation == "3":
         print("Final Position: ", x_vals[-1], y_vals[-1])
 
-    return x_vals, y_vals
+    return x_vals, y_vals, initial_velocity, launch_angle, total_time

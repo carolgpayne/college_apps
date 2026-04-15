@@ -5,6 +5,9 @@ from simulations import projectile_sim as ps
 def main():
     x_vals = None
     y_vals = None
+    initial_velocity = None
+    launch_angle = None
+    total_time = None
 
     while True:
         print("Physics Lab Simulator" + "\n" + "---------------------")
@@ -17,7 +20,8 @@ def main():
         option = input("Choose an option (1, 2, etc.): ")
 
         if option == "1":
-            x_vals, y_vals = pm.choices()
+            x_vals, y_vals, initial_velocity, launch_angle, total_time = pm.choices()
+            # fix, make it an array?
 
         elif option == "2":
             if x_vals is None or y_vals is None:
@@ -25,8 +29,10 @@ def main():
             else:
                 gp.graph_position()
         elif option == "3":
-            ps.time(x_vals, y_vals)
-
+            if initial_velocity is None or y_vals is None or total_time is None:
+                print("Run the calculator first!")
+            else:
+                ps.time(x_vals, y_vals, initial_velocity, launch_angle, total_time)
         elif option == "5":
             print("Goodbye!")
             break
