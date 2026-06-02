@@ -23,6 +23,7 @@ def main():
             x_vals, y_vals, initial_velocity, launch_angle, total_time = pm.choices()
             # fix, make it an array?
 
+        # ensures graph has x and y coordinates to plot
         elif option == "2":
             if x_vals is None or y_vals is None:
                 print("Run the calculator first!")
