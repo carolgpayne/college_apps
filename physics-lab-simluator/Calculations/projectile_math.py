@@ -1,8 +1,8 @@
-# equations: x = v*cos(θ)*t, y = v*sin(θ)*t + 0.5*g*t^2 (kinematics 2-D)
+# equations: x = v*cos(θ)*t, y = v*sin(θ)*t - 0.5*g*t^2 (kinematics 2-D)
 import numpy as np
 
 # constants
-g = 9.81
+g = -9.81
 
 def choices():
     print("Calculation options" + "\n" + "-------------------")
@@ -15,29 +15,29 @@ def choices():
     return position(calculation)
 
 def position(calculation):
-    initial_velocity = float(input("Enter initial velocity (m/s): "))
-    launch_angle = float(input("Enter initial launch angle (degrees): "))
-    total_time = float(input("Enter the total time: "))
+    v0 = float(input("Enter initial velocity (m/s): "))
+    angle = float(input("Enter initial launch angle (degrees): "))
+    time = float(input("Enter the total time: "))
     # convert degrees to radians, solve for x and y (position)
-    radians = np.radians(launch_angle)
+    radians = np.radians(angle)
 
     # time array for graphing
-    t_vals = np.linspace(0, total_time, 50)
+    t_vals = np.linspace(0, time, 50)
 
-    x_vals = initial_velocity * np.cos(radians) * t_vals
-    y_vals = initial_velocity * np.sin(radians) * t_vals + 0.5 * g * t_vals ** 2
+    initial_x = v0 * np.cos(radians) * t_vals
+    initial_y = v0 * np.sin(radians) * t_vals + 0.5 * g * t_vals ** 2
 
     if calculation == "1":
-        print("Final Height: ", y_vals[-1])
+        print("Final Height: ", initial_y[-1])
         new_calc = input("Would you like to perform another calculation? (Y/N): ")
         if new_calc == "Y" or new_calc == "y":
             choices()
     elif calculation == "2":
-        print("Final Distance: ", x_vals[-1])
+        print("Final Distance: ", initial_x[-1])
         new_calc = input("Would you like to perform another calculation? (Y/N): ")
         if new_calc == "Y" or new_calc == "y":
             choices()
     elif calculation == "3":
-        print("Final Position: ", x_vals[-1], " , ", y_vals[-1])
+        print("Final Position: ", initial_x[-1], " , ", initial_y[-1])
 
-    return x_vals, y_vals, initial_velocity, launch_angle, total_time
+    return v0, angle

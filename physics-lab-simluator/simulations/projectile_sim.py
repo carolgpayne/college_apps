@@ -1,18 +1,43 @@
 # track position, velocity, and time
-from Calculations import projectile_math as pm
 import numpy as np
 
-def time(x_vals, y_vals, initial_velocity, launch_angle, total_time):
-    initial_position = x_vals, y_vals
-    g = 9.81 # downward, negative
+g = -9.81 # downward, negative
 
-    rad = np.radians(launch_angle)
+def simulate_projectile(initial_x,
+                        initial_y,
+                        v0,
+                        angle):
 
-    # find final velocity for both components
-    v_x = initial_velocity * np.cos(rad)
-    v_y = initial_velocity * np.sin(rad) + g*total_time
+    rad = np.radians(angle)
 
-    # find the distance from the origin
+    # velocity components
+    v_x = v0 * np.cos(rad)
+    v_y = v0 * np.sin(rad)
 
+    x = initial_x
+    y = initial_y
 
-    # find points that fall in the parabola
+    t = 0
+    dt = 0.01
+
+    x_points = []
+    y_points = []
+    t_points = []
+
+    while y >= 0:
+        # store current state
+        x_points.append(x)
+        y_points.append(y)
+        t_points.append(t)
+
+        # update position
+        x += v_x * dt
+        y += v_y * dt
+
+        # update velocity
+        v_y += g * dt
+        
+        # update time
+        t += dt
+
+    return x_points, y_points, t_points

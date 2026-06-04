@@ -3,38 +3,29 @@ from simulations import projectile_sim as ps
 
 
 def main():
-    x_vals = None
-    y_vals = None
-    initial_velocity = None
-    launch_angle = None
-    total_time = None
+    v0 = None
+    angle = None
 
     while True:
         print("Physics Lab Simulator" + "\n" + "---------------------")
         print("1. Projectile calculator")
         print("2. Graph projectile trajectory")
-        print("3. Run projectile simulation")
-        print("4. Analyze lab data")
-        print("5. Exit")
+        print("3. Analyze lab data")
+        print("4. Exit")
 
         option = input("Choose an option (1, 2, etc.): ")
 
         if option == "1":
-            x_vals, y_vals, initial_velocity, launch_angle, total_time = pm.choices()
+            v0, angle = pm.choices()
             # fix, make it an array?
 
         # ensures graph has x and y coordinates to plot
         elif option == "2":
-            if x_vals is None or y_vals is None:
+            if v0 is None or angle is None:
                 print("Run the calculator first!")
             else:
-                gp.graph_position()
-        elif option == "3":
-            if initial_velocity is None or y_vals is None or total_time is None:
-                print("Run the calculator first!")
-            else:
-                ps.time(x_vals, y_vals, initial_velocity, launch_angle, total_time)
-        elif option == "5":
+                gp.user_choice(0, 0, v0, angle)
+        elif option == "4":
             print("Goodbye!")
             break
 
