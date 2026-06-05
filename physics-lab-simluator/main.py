@@ -1,6 +1,6 @@
-from Calculations import graphing as gp, projectile_math as pm
-from simulations import projectile_sim as ps
-
+from Inputs import projectile_math as pm
+from visualization import graphing as gp
+from analysis import data_loader as dl
 
 def main():
     v0 = None
@@ -27,6 +27,12 @@ def main():
         elif option == "4":
             print("Goodbye!")
             break
+
+        elif option == "3":
+            if v0 is None or angle is None:
+                print("Run the calculator, graph, and simulation first!")
+            else:
+                dl.percent_error()
 
     return 0
 
