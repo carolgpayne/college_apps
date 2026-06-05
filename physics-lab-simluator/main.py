@@ -17,7 +17,6 @@ def main():
 
         if option == "1":
             v0, angle = pm.choices()
-            # fix, make it an array?
 
         # ensures graph has x and y coordinates to plot
         elif option == "2":
