@@ -1,0 +1,29 @@
+#include <OneWire.h>
+#include <DallasTemperature.h>
+
+#define DATA_WIRE 2
+
+OneWire oneWire(DATA_WIRE);
+DallasTemperature sensors(&oneWire);
+
+void setup() {
+  Serial.begin(9600);
+  Serial.println("Temperature Test");
+  sensors.begin();
+}
+
+void loop() {
+  sensors.requestTemperatures();
+  float tempC = sensors.getTempCByIndex(0);
+
+  if(tempC == DEVICE_DISCONNECTED_C) {
+    Serial.println("Error, check wiring pins");
+  } else {
+    Serial.print("Temperature: ");
+    Serial.print(tempC);
+    Serial.print(" C | ");
+    Serial.print(DallasTemperature::toFahrenheit(tempC));
+    Serial.println(" F");
+  }
+  delay(1000);
+}
