@@ -4,6 +4,8 @@ import time
 arduino_port = "/dev/ttyUSB0"
 baud_rate = 9600
 filename = "tempSensor.csv"
+duration = int(input("Collect data for how many seconds?: "))
+start = time.time()
 
 try:
     ser = serial.Serial(arduino_port, baud_rate, timeout=1)
@@ -13,7 +15,7 @@ try:
     with open(filename, "w", encoding="utf-8") as file:
         print(f"Exporting data to '{filename}'... Press Ctrl+C to stop")
 
-        while True:
+        while time.time() - start < duration:
             if ser.in_waiting > 0:
                 raw_data = ser.readline()
                 decoded_line = raw_data.decode("utf-8").strip()
