@@ -1,11 +1,12 @@
 import serial
 import time
-import numpy as np
+import data_analysis as da
 
 arduino_port = "/dev/ttyUSB0"
 baud_rate = 9600
 filename = "tempSensor.csv"
 duration = int(input("Collect data for how many seconds?: "))
+temperatures = []
 
 try:
     ser = serial.Serial(arduino_port, baud_rate, timeout=1)
@@ -21,12 +22,13 @@ try:
             if ser.in_waiting > 0:
                 raw_data = ser.readline()
                 decoded_line = raw_data.decode("utf-8").strip()
-                temperatures = np.loadtxt(filename)
+                celsius = float(decoded_line.split()[1])
 
                 if decoded_line:
                     elapsed_seconds = int(time.time() - start)
                     print(f"{elapsed_seconds} Seconds: {decoded_line}")
-                    file.write(decoded_line + "\n")
+                    file.write(f"{elapsed_seconds:.2f},{celsius}\n")
+                    temperatures.append(celsius)
                     file.flush()
 
             time.sleep(0.01)
@@ -39,3 +41,8 @@ finally:
     if 'ser' in locals() and ser.is_open:
         ser.close()
         print("Serial connection closed")
+        analysis = input("Would you like to analysis the data? (y/n): ")
+        if analysis == "Y" or analysis == "y":
+            da.import_data()
+        else:
+            print("Bye!")
