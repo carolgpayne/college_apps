@@ -1,4 +1,4 @@
-# engineering portfolio
+# Engineering Portfolio
 
 Hello! My projects focus on scientific modeling, data analysis, and embedded systems. I enjoy utilizing programming as an extension of sciencific questioning, as it allows for extensive data collection and promotes high-level reasoing skills. 
 
