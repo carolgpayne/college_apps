@@ -1,6 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from simulations import projectile_sim as ps
+import projectile_sim as ps
+
 
 def user_choice(initial_x, initial_y, v0, angle):
     choice = input("1. Graph" + "\n" + "2. Simulate" + "\n" + "Which would you like?: ")

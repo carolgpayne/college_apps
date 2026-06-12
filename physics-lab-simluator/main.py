@@ -1,6 +1,7 @@
-from Inputs import projectile_math as pm
-from visualization import graphing as gp
-from analysis import data_loader as dl
+import projectile_math as pm
+import graphing as gp
+import data_loader as dl
+
 
 def main():
     v0 = None
