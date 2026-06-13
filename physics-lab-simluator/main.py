@@ -2,7 +2,6 @@ import projectile_math as pm
 import graphing as gp
 import data_loader as dl
 
-
 def main():
     v0 = None
     angle = None
@@ -17,7 +16,7 @@ def main():
         option = input("Choose an option (1, 2, etc.): ")
 
         if option == "1":
-            v0, angle = pm.choices()
+            v0, angle = pm.user_input()
 
         # ensures graph has x and y coordinates to plot
         elif option == "2":
@@ -33,7 +32,8 @@ def main():
             if v0 is None or angle is None:
                 print("Run the calculator, graph, and simulation first!")
             else:
-                dl.percent_error()
+                filename = input("Enter CSV filename: ")
+                dl.load_data(filename)
 
     return 0
 

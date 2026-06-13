@@ -1,10 +1,18 @@
 from sklearn.metrics import mean_squared_error, accuracy_score
-# standard deviation
+import csv
 
-# standard uncertainty and confidence interval
+def load_data(filename):
+    data = {"time": [],
+    "x": [],
+    "y": []
+    }
 
-# error analysis (simulation = actual, graph = predicated)
-def percent_error():
-    actual = 0
-    theoretical = 0
-    percent = actual / theoretical * 100
+    with open(filename, "r") as file:
+        reader = csv.DictReader(file)
+
+        for row in reader:
+            data["time"].append(float(row["time"]))
+            data["x"].append(float(row["x"]))
+            data["y"].append(float(row["y"]))
+
+    return data

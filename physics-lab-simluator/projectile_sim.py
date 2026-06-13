@@ -20,15 +20,14 @@ def simulate_projectile(initial_x,
     t = 0
     dt = 0.01
 
-    x_points = []
-    y_points = []
-    t_points = []
+    trajectory = []
+    trajectory.append((t,x,y))
 
     while y >= 0:
         # store current state
-        x_points.append(x)
-        y_points.append(y)
-        t_points.append(t)
+        trajectory.append(x)
+        trajectory.append(y)
+        trajectory.append(t)
 
         # update position
         x += v_x * dt
@@ -40,4 +39,4 @@ def simulate_projectile(initial_x,
         # update time
         t += dt
 
-    return x_points, y_points, t_points
+    return x, y, t
