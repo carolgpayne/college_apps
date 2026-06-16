@@ -34,15 +34,15 @@ def position(calculation, v0, angle, time):
 
     t_vals = np.linspace(0, time, 50)
 
-    initial_x = v0 * np.cos(radians) * t_vals
-    initial_y = v0 * np.sin(radians) * t_vals - 0.5 * g * t_vals ** 2
+    x_points = v0 * np.cos(radians) * t_vals
+    y_points = v0 * np.sin(radians) * t_vals - 0.5 * g * t_vals ** 2
 
-    return initial_x, initial_y
+    return x_points, y_points
 
-def display_results(calculation, initial_x, initial_y, v0, angle):
+def display_results(calculation, x_points, y_points, v0, angle):
     if calculation == "1":
-        print("Final Height: ", initial_y[-1])
+        print("Final Height: ", y_points[-1])
     elif calculation == "2":
-            print("Final Distance: ", initial_x[-1])
+            print("Final Distance: ", x_points[-1])
     elif calculation == "3":
-        print("Final Position: ", initial_x[-1], initial_y[-1])
+        print("Final Position: ", x_points[-1], y_points[-1])

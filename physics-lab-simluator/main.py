@@ -5,6 +5,8 @@ import data_loader as dl
 def main():
     v0 = None
     angle = None
+    x_points = None
+    y_points = None
 
     while True:
         print("Physics Lab Simulator" + "\n" + "---------------------")
@@ -20,7 +22,7 @@ def main():
 
         # ensures graph has x and y coordinates to plot
         elif option == "2":
-            if v0 is None or angle is None:
+            if v0 is None or angle is None or x_points is None or y_points is None:
                 print("Run the calculator first!")
             else:
                 gp.user_choice(x_points, y_points, v0, angle)

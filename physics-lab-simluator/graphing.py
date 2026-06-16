@@ -9,11 +9,10 @@ def user_choice(x_points, y_points, v0, angle):
     if choice == "1":
         graph_position(x_points, y_points)
     else:
-        simulate_position(x_points, y_points, v0, angle)
+        simulate_position(v0, angle)
 
 def graph_position(x_points, y_points):
-
-    plt.plot(x_points, y_points)
+    plt.plot(x_points, y_points, label="Theoretical Trajectory")
 
     plt.title("Predicted Projectile Path")
     plt.xlabel("Distance (m)")
@@ -22,8 +21,14 @@ def graph_position(x_points, y_points):
     plt.legend()
     plt.show()
 
-def simulate_position(initial_x, initial_y, v0, angle):
-    x, y, t = ps.simulate_projectile(initial_x, initial_y, v0, angle)
+def simulate_position(v0, angle):
+    x_points, y_points, t_points = ps.simulate_projectile(v0, angle)
 
-    plt.plot(x, y)
+    plt.plot(x_points, y_points, label="Simulation")
+
+    plt.title("Simulated Projectile Path")
+    plt.xlabel("Distance (m)")
+    plt.ylabel("Height (m)")
+    plt.grid(True)
+    plt.legend()
     plt.show()
