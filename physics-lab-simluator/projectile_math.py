@@ -18,21 +18,20 @@ def user_input():
         angle = float(input("Enter initial launch angle (degrees): "))
         time = float(input("Enter the total time: "))
 
-        initial_x, initial_y = position(calculation, v0, angle, time)
+        x_points, y_points = position(calculation, v0, angle, time)
 
-        display_results(calculation, initial_x, initial_y, v0, angle)
+        display_results(calculation, x_points, y_points, v0, angle)
 
         again = input("Would you like to perform another calculation? (Y/N): ")
 
         if again.lower() == "n":
-            return v0, angle
+            return x_points, y_points, v0, angle
 
 
 def position(calculation, v0, angle, time):
     # convert degrees to radians, solve for x and y (position)
     radians = np.radians(angle)
 
-    # time array for graphing
     t_vals = np.linspace(0, time, 50)
 
     initial_x = v0 * np.cos(radians) * t_vals

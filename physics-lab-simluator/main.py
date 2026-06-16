@@ -16,14 +16,14 @@ def main():
         option = input("Choose an option (1, 2, etc.): ")
 
         if option == "1":
-            v0, angle = pm.user_input()
+            x_points, y_points, v0, angle = pm.user_input()
 
         # ensures graph has x and y coordinates to plot
         elif option == "2":
             if v0 is None or angle is None:
                 print("Run the calculator first!")
             else:
-                gp.user_choice(0, 0, v0, angle)
+                gp.user_choice(x_points, y_points, v0, angle)
         elif option == "4":
             print("Goodbye!")
             break
