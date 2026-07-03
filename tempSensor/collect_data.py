@@ -41,7 +41,7 @@ finally:
     if 'ser' in locals() and ser.is_open:
         ser.close()
         print("Serial connection closed")
-        analysis = input("Would you like to analysis the data? (y/n): ")
+        analysis = input("Would you like to analyze the data? (y/n): ")
         if analysis == "Y" or analysis == "y":
             da.import_data()
         else:

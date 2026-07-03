@@ -6,4 +6,8 @@ def import_data():
     times = data[:, 0]
     temperatures = data[:, 1]
 
-    print(*temperatures)
+    analyze_data(times, temperatures)
+
+
+def analyze_data(times, temperatures):
+    print(f"Average Temperature: {(sum(temperatures) / len(times)):.2f} °C")
