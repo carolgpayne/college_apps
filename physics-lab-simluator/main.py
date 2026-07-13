@@ -1,13 +1,10 @@
-import projectile_math as pm
-import graphing as gp
-import csv_io as ci
+from Inputs import projectile_math as pm
+from Inputs.projectile_math import Projectile
+from visualization import graphing as gp
+from analysis import csv_io as ci
 
 def main():
-    v0 = None
-    angle = None
-    x_points = None
-    y_points = None
-    t_points = None
+    projectile = None
 
     while True:
         print("Physics Lab Simulator\n---------------------")
@@ -19,24 +16,23 @@ def main():
         option = input("Choose an option (1, 2, etc.): ")
 
         if option == "1":
-            t_points, x_points, y_points, v0, angle = pm.user_input()
-
+            projectile = pm.user_input()
         # ensures graph has x and y coordinates to plot
         elif option == "2":
-            if v0 is None or angle is None or x_points is None or y_points is None:
+            if projectile is None:
                 print("Run the calculator first!")
             else:
-                gp.user_choice(x_points, y_points, v0, angle)
+                gp.user_choice(projectile)
         elif option == "4":
             print("Goodbye!")
             break
 
         elif option == "3":
-            if v0 is None or angle is None or t_points is None:
+            if projectile is None:
                 print("Run the calculator, graph, and simulation first!")
             else:
                 filename = input("Enter CSV filename: ")
-                ci.save_data(filename, t_points, x_points, y_points)
+                ci.save_data(filename, projectile)
 
     return 0
 

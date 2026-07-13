@@ -1,6 +1,6 @@
 import csv
 
-def save_data(filename, t_points, x_points, y_points):
+def save_data(filename, projectile):
     headers = ["time", "x", "y"]
 
     with open(filename, "w", newline="", encoding = "utf-8") as file:
@@ -8,11 +8,11 @@ def save_data(filename, t_points, x_points, y_points):
 
         writer.writeheader()
 
-        for i in range(len(t_points)):
+        for i in range(len(projectile.t_points)):
             writer.writerow({
-                "time": round(t_points[i], 3),
-                "x": round(x_points[i], 3),
-                "y": round(y_points[i], 3)
+                "time": round(projectile.t_points[i], 3),
+                "x": round(projectile.x_points[i], 3),
+                "y": round(projectile.y_points[i], 3)
             })
 
 def load_data(filename):
