@@ -3,6 +3,7 @@ from Inputs.projectile_math import Projectile
 from visualization import graphing as gp
 from analysis import csv_io as ci
 
+
 def main():
     projectile = None
 
@@ -31,7 +32,7 @@ def main():
             if projectile is None:
                 print("Run the calculator, graph, and simulation first!")
             else:
-                filename = input("Enter CSV filename: ")
+                filename = "trajectory.csv"
                 ci.save_data(filename, projectile)
 
     return 0

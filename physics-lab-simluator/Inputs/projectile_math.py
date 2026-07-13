@@ -35,13 +35,21 @@ class Projectile:
         # convert degrees to radians, solve for x and y (position)
         radians = np.radians(self.angle)
 
-        self.t_points = np.linspace(0, time, 50)
+        t = np.linspace(0, time, 50)
 
-        self.x_points = self.v0 * np.cos(radians) * self.t_points
-        self.y_points = self.v0 * np.sin(radians) * self.t_points - 0.5 * g * self.t_points ** 2
+        x = self.v0 * np.cos(radians) * t
+        y = self.v0 * np.sin(radians) * t - 0.5 * g * t ** 2
+
+        for i in range(len(t)):
+            if y[i] >= 0:
+                self.t_points.append(t[i])
+                self.x_points.append(x[i])
+                self.y_points.append(y[i])
+            else:
+                break
+
 
     def display_results(self, calculation):
-
         if calculation == "1":
             print(f"Final Height: {self.y_points[-1]:.2f}")
         elif calculation == "2":

@@ -1,4 +1,5 @@
 import csv
+from analysis import data_analysis as an
 
 def save_data(filename, projectile):
     headers = ["time", "x", "y"]
@@ -15,6 +16,8 @@ def save_data(filename, projectile):
                 "y": round(projectile.y_points[i], 3)
             })
 
+    load_data(filename)
+
 def load_data(filename):
     data = {"time": [],
     "x": [],
@@ -29,4 +32,4 @@ def load_data(filename):
             data["x"].append(float(row["x"]))
             data["y"].append(float(row["y"]))
 
-    return data
+    an.calculate_statistics(data)
