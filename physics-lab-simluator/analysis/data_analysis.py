@@ -1,7 +1,11 @@
+import pandas as pd
 
 def calculate_statistics(data: object) -> None:
-    for key, value in data.items():
-        print(f"{key}: {value}")
+    df = pd.DataFrame(data)
+
+    max_height = df["y"].max()
+
+    print(f"Max Height: {max_height} m")
 
 def compare_trajectories():
     print("w")
