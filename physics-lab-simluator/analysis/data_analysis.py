@@ -1,14 +1,18 @@
 import pandas as pd
 
-def calculate_statistics(data: object) -> None:
-    df = pd.DataFrame(data)
+class Analysis:
+    def __init__(self, data):
+        self.max_height = "y"
+        self.total_distance = "x"
+        self.data = data
 
-    max_height = df["y"].max()
+    def calculate_statistics(self, data: object) -> None:
+        df = pd.DataFrame(self.data)
 
-    print(f"Max Height: {max_height} m")
+        self.max_height = df["y"].max()
 
-def compare_trajectories():
-    print("w")
+    #def compare_trajectories(self):
+        #print("w")
 
-def calculate_rmse():
-    print("q")
+    #def calculate_rmse(self):
+        #print("q")

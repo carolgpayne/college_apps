@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Physics Projectile Motion Simulator</title>
+    <link href="{{ url_for('static', filename='physics_style.css') }}"
+          rel="stylesheet">
+    <script src="{{url_for('static', filename='physics.js') }}" defer></script>
+</head>
+<body>
+    <form id="userInput">
+        <h1>Projectile Motion Simulator</h1>
+        <h2>Enter Initial Velocity:</h2>
+        <label for="initial_velocity"></label>
+            <input type="text" id="initial_velocity" name="initial_velocity">
+        <h2>Enter Launch Angle:</h2>
+        <label for="launch_angle"></label><label>
+            <input type="text" id="launch_angle" name="launch_angle">
+        </label>
+        <h2>Enter Total Time:</h2>
+        <label>
+            <input type="text" id="total_time" name="total_time">
+        </label>
+        <button type="submit" id="submit_button" name="submit_button">
+            Run Simulation
+        </button>
+    </form>
+
+    <div id="results" class="hidden">
+        <h2>Final Position: </h2>
+        <h2>Maximum Height: </h2>
+        <h2>Total Distance: </h2>
+        <h2>Theoretical Graph: </h2>
+        <h2>Simulated Graph: </h2>
+        <button>Click Here for Theoretical and Simulation Comparison!</button>
+    </div>
+</body>
+</html>
