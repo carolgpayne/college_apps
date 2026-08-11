@@ -16,12 +16,11 @@ def save_data(filename, projectile):
                 "y": round(projectile.y_points[i], 3)
             })
 
-    load_data(filename)
-
 def load_data(filename):
-    data = {"time": [],
-    "x": [],
-    "y": []
+    data = {
+        "time": [],
+        "x": [],
+        "y": []
     }
 
     with open(filename, "r") as file:
@@ -32,5 +31,4 @@ def load_data(filename):
             data["x"].append(float(row["x"]))
             data["y"].append(float(row["y"]))
 
-    analysis = Analysis(data)
-    analysis.calculate_statistics(data)
+    return data

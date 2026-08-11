@@ -22,7 +22,8 @@ userInput.addEventListener("submit", async function(event) {
     });
     const data = await response.json();
 
-    console.log(data);
-
     results.classList.remove("hidden");
+
+    document.getElementById("max_height").textContent = `${data.max_height.toFixed(2)} m`;
+    document.getElementById("total_distance").textContent = `${data.total_distance.toFixed(2)} m`;
 });

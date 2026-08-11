@@ -6,10 +6,13 @@ class Analysis:
         self.total_distance = "x"
         self.data = data
 
-    def calculate_statistics(self, data: object) -> None:
+        self.calculate_statistics()
+
+    def calculate_statistics(self):
         df = pd.DataFrame(self.data)
 
         self.max_height = df["y"].max()
+        self.total_distance = df["x"].max()
 
     #def compare_trajectories(self):
         #print("w")

@@ -17,25 +17,24 @@ def physics():
 @app.route("/simulate", methods=["POST"])
 def simulate():
 
-    data = request.get_json()
+    value = request.get_json()
 
-    velocity = float(data["velocity"])
-    angle = float(data["angle"])
-    time = float(data["time"])
+    velocity = float(value["velocity"])
+    angle = float(value["angle"])
+    time = float(value["time"])
 
     projectile = Projectile(velocity, angle)
     projectile.position(time)
 
-    #gp.graph_position(projectile)
-    #gp.simulate_position(projectile)
-
     filename = "trajectory.csv"
     ci.save_data(filename, projectile)
+    data = ci.load_data(filename)
 
     analysis = Analysis(data)
 
     return jsonify({
-
+        "max_height": analysis.max_height,
+        "total_distance": analysis.total_distance
     })
 
 if __name__ == "__main__":
