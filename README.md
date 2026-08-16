@@ -3,7 +3,7 @@
 Hello! My projects focus on scientific modeling, data analysis, and embedded systems. I enjoy utilizing programming as an extension of sciencific questioning, as it allows for extensive data collection and promotes high-level reasoning skills. 
 
 ## Main Interface
-Web application which pulls all three independent projects together
+Web application which pulls all three independent projects together.
 
 Skills:
 - CSS design
