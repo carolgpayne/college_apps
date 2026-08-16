@@ -1,8 +1,15 @@
 # Engineering Portfolio
 
-Hello! My projects focus on scientific modeling, data analysis, and embedded systems. I enjoy utilizing programming as an extension of sciencific questioning, as it allows for extensive data collection and promotes high-level reasoing skills. 
+Hello! My projects focus on scientific modeling, data analysis, and embedded systems. I enjoy utilizing programming as an extension of sciencific questioning, as it allows for extensive data collection and promotes high-level reasoning skills. 
 
-## Projects
+## Main Interface
+Web application which pulls all three independent projects together
+
+Skills:
+- CSS design
+- Calculations/Lab Analysis done in Python
+- Flask to communicate Python with JavaScript/HTML
+- Chart.js communicates with Python for visualization
 
 ### Physics Simulator
 Pycharm program that models projectile motion, graphs trajectories, and compares theoretical data with simluated results.
